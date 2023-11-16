@@ -1,0 +1,32 @@
+# #Sistem Penilaian Akhir Mahasiswa
+# #Tambahkan Fungsi untuk menghitung nilai akhir
+# #Tambahkan Fungsi untuk menghitung nilai akhir semua Mahasiswa
+
+def hitung_nilai_akhir(nilai_uts, nilai_uas):
+    # Menghitung nilai akhir dengan bobot 60% UTS dan 40% UAS
+    nilai_akhir = 0.6 * nilai_uts + 0.4 * nilai_uas
+    return nilai_akhir
+
+def tampilkan_nilai_akhir(data_nilai_akhir):
+    print("Hasil Nilai Akhir Mahasiswa:")
+    for nama, nilai_akhir in data_nilai_akhir.items():
+        print("Nama: {}\tNilai Akhir: {:.3`f}".format(nama, nilai_akhir))
+
+def main():
+    data_mahasiswa = {
+        "Mahasiswa 1": {"uts": 87, "uas": 93},
+        "Mahasiswa 2": {"uts": 73, "uas": 89},
+        "Mahasiswa 3": {"uts": 88, "uas": 77},
+        # Tambahkan data mahasiswa lain di sini
+    }
+
+    data_nilai_akhir = {}
+    
+    for nama, nilai in data_mahasiswa.items():
+        nilai_akhir = hitung_nilai_akhir(nilai["uts"], nilai["uas"])
+        data_nilai_akhir[nama] = nilai_akhir
+
+    tampilkan_nilai_akhir(data_nilai_akhir)
+
+if __name__ == "__main__":
+    main()
